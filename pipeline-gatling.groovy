@@ -15,15 +15,18 @@ def start(String url){
         stage("Insert project url") {
 
             
-           dir("src/test/java/computerdatabase/"){}
+           dir("src/test/java/computerdatabase/"){
 
-            script{
+                  script{
                  def javaFile = readFile "Java11Simulation.java"
             javaFile.replaceAll("https*", "${url}"+")")
                 bat "del Java11Simulation.java"
                  writeFile file: "Java11Simulation.java", text: javaFile
 
             }
+           }
+
+         
            
         }
         stage("Maven build") {//creo q sobra
@@ -48,14 +51,7 @@ def start(String url){
 
 
 }
+
+
+
 return this
-
-
-
-
-
-
-
-
-
-
