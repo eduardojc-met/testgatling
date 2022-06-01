@@ -36,6 +36,7 @@ def start(String url){
         }*/
         stage("Gatling run") {
             script {
+                bat "dir"
                 bat 'mvnw gatling:test -Dgatling.simulationClass=io.gatling.demo.Java11Simulation'
             }
             post {
