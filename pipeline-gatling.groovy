@@ -29,21 +29,17 @@ def start(String url){
          
            
         }
-  /*      stage("Maven build") {//creo q sobra
+       /* stage("Maven build") {//creo q sobra
             script {
-                bat 'mvnw -B clean package'
+                bat 'mvn -B clean package'
             }
         }*/
         stage("Gatling run") {
             script {
-                bat "dir"
-                bat 'mvnw gatling:test -Dgatling.simulationClass=io.gatling.demo.Java11Simulation'
+                bat 'mvn gatling:test -Dgatling.simulationClass=io.gatling.demo.Java11Simulation'
             }
-            post {
-                always {
-                    gatlingArchive()
-                }
-            }
+            gatlingArchive()
+            
         }
 
 
