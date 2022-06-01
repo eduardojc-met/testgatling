@@ -48,6 +48,7 @@ def start(String url){
 
 
 }
+return this
 
 
 
@@ -58,34 +59,3 @@ def start(String url){
 
 
 
-
-
-
-
-
-pipeline {
-    agent any
-    
-    stages {
-        
-            stage('Checkout Source') {
-      
-      steps {
-     
-      
-      script{
-      def git_command=  git "https://github.com/eduardojc-met/gatling.git"
-      
-          
-           
-      }
-      }
-       
-    }
-        
-        
-        
-        
-
-    }
-}
